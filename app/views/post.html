@@ -1,0 +1,8 @@
+<div ng-switch="item.type">
+  <div ng-switch-when="travel">
+    <div ng-include="'views/partials/travel.html'"></div>
+  </div>
+  <div ng-switch-default>
+    <div ng-include="'views/partials/essay.html'"></div>
+  </div>
+</div>

@@ -1,0 +1,278 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import "../bower_components/bootstrap/less/bootstrap";
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+@brand-primary: rgb(215, 136, 39);
+@brand-info:    rgb(139, 157, 165);
+
+//== Scaffolding
+//
+// ## Settings for some of the most global styles.
+@text-color: #000;
+@link-hover-color: lighten(@link-color, 15%);
+@link-active-color: rgb(194, 55, 0);
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+@font-family-sans-serif: 'Lobster', cursive;
+@font-family-serif: 'Computer Modern Serif', Times, 'Times New Roman', serif;
+@font-family-base: @font-family-serif;
+@font-size-base: 16px;
+
+//== Navbar
+//
+//##
+
+// Basics of a navbar
+@navbar-default-color: @text-color;
+@navbar-default-bg: @body-bg;
+@navbar-default-border: @navbar-default-bg;
+
+// Navbar links
+@navbar-default-link-color:                @link-color;
+@navbar-default-link-hover-color:          @link-hover-color;
+@navbar-default-link-hover-bg:             transparent;
+@navbar-default-link-active-color:         @link-active-color;
+@navbar-default-link-active-bg:            transparent;
+@navbar-default-link-disabled-color:       #ccc;
+@navbar-default-link-disabled-bg:          transparent;
+
+// Navbar brand label
+@navbar-default-brand-color:               #fff;
+@navbar-default-brand-hover-color:         #fff;
+@navbar-default-brand-hover-bg:            inherit;
+
+// Navbar toggle
+@navbar-default-toggle-hover-bg:           @navbar-default-bg;
+@navbar-default-toggle-icon-bar-bg:        #888;
+@navbar-default-toggle-border-color:       @navbar-default-bg;
+
+//
+// Globals
+//
+
+a.active
+{
+  color: @link-active-color;
+}
+
+.small-caps
+{
+  font-variant: small-caps;
+  font-size: @font-size-large;
+}
+
+
+//
+// Base structure
+//
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: @gray-darker;
+}
+
+body > .container
+{
+  padding-top: @navbar-height + 35px;
+  background-color: @body-bg;
+  box-shadow: inset 0 0 20px rgba(0,0,0,.2);
+}
+
+//
+// Header
+//
+
+#masthead .navbar-fixed-top
+{
+  top: 15px;
+  left: auto;
+  right: auto;
+
+  @media (min-width: @screen-sm-min) {
+    width: @container-sm;
+    margin-left: -25px;
+  }
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+    margin-left: -25px;
+  }
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+    margin-left: -25px;
+  }
+}
+
+#masthead .navbar-toggle 
+{
+  border-color: @gray;
+  position: absolute;
+  top: 0;
+  margin-left: 50px;
+
+  .icon-bar 
+  {
+    background-color: #000;
+  }
+}
+
+#masthead .navbar-brand
+{
+  background-color: @brand-primary;
+  background: linear-gradient(90deg, darken(@brand-primary, 10%), @brand-primary 10%);
+  font-family: @font-family-sans-serif;
+  font-size: @font-size-h3;
+  letter-spacing: 1px;
+  color: #fff
+}
+
+#masthead .navbar-brand-wrapper
+{
+  padding-right: 50px;
+  position: relative;
+}
+
+#masthead .navbar-brand-wrapper:after
+{
+  border-top: 25px solid @brand-primary;
+  border-bottom: 25px solid @brand-primary;
+  border-right: 50px solid rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: '';
+  height: 0;
+  width: 0;
+}
+
+#main-menu
+{
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#masthead .navbar-nav > li > a
+{
+  border-bottom: 2px solid transparent;
+}
+
+#masthead .navbar-nav > li > a:hover,
+#masthead .navbar-nav > li > a:focus
+{
+  border-bottom-color: @link-hover-color; 
+  background-color: @body-bg;
+}
+
+#masthead .navbar-nav > .active > a,
+#masthead .navbar-nav > .active > a:hover,
+#masthead .navbar-nav > .active > a:focus
+{
+  color: @link-active-color;
+  border-bottom-color: @link-active-color; 
+}
+
+//
+// Side nav
+//
+.side-nav > li > button
+{
+  border-right: 2px solid transparent
+}
+
+.side-nav > .active > button
+{
+  color: @link-active-color;
+  border-right-color: @link-active-color;
+}
+
+.postlet-nav
+{
+  height: 400px;
+  overflow-y: scroll;
+}
+
+//
+// Posts
+//
+.posts > .post 
+{
+  padding-bottom: 40px
+}
+
+article.essay
+{
+  text-align: justify;
+}
+
+article .article-title,
+article .article-title a
+{
+  text-align: center;
+  color: @text-color;
+}
+
+article .article-subtitle
+{
+  text-align: center;
+  font-size: @font-size-h3;
+}
+
+article.article-body
+{
+  position: relative; 
+}
+
+.article-sidenote
+{
+  color: @brand-info;
+  padding-left: 3px;
+}
+
+.article-sidenote > .contents
+{
+  position: absolute;
+  top: auto;
+  right: 0;
+  margin-right: percentage(-(4.5 / @grid-columns));
+  width: percentage((4 / @grid-columns));
+  text-align: left;
+}
+
+.article-sidenote.left > .contents
+{
+  left: 0;
+  right: auto;
+  margin-right: 0;
+  margin-left: percentage(-(4.5 / @grid-columns));
+}
+
+article footer
+{
+  padding-top: @padding-base-vertical;
+  font-size: @font-size-small;
+  color: @brand-info;
+}
+
+article footer .citations
+{
+  text-align: left;
+}
+
+.angular-google-map-container
+{
+  height: 400px;
+}
+
+//
+// Footer
+//
+
+#mastfoot {
+  background-color: @body-bg;
+  text-align: center;
+}
+

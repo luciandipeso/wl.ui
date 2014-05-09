@@ -1,0 +1,44 @@
+{
+  "name": "wl",
+  "version": "0.1.0",
+  "description": "Yet another amazing AngularJS app",
+  "keywords": [
+    "angular"
+  ],
+  "homepage": "https://github.com/luciandipeso/wl",
+  "bugs": "https://github.com/luciandipeso/wl/issues",
+  "author": {
+    "name": "Lucian DiPeso",
+    "email": "ldipeso@gmail.com",
+    "url": "https://github.com/luciandipeso"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luciandipeso/wl.git"
+  },
+  "licenses": [
+    {
+      "type": "GPL"
+    }
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.0",
+    "font-awesome": "~4.0.0",
+    "angular-strap": "~2.0.0",
+    "angular-motion": "~0.3.0",
+    "angular-ui-router": "~0.2.0",
+    "angular-animate": "~1.2.10",
+    "angular-cookies": "~1.2.10",
+    "angular-i18n": "~1.2.10",
+    "angular-resource": "~1.2.10",
+    "angular-route": "~1.2.10",
+    "angular-sanitize": "~1.2.10",
+    "angular-touch": "~1.2.10",
+    "angular": "~1.2.10",
+    "angular-loading-bar": "*",
+    "angular-moment": "~0.7.0",
+    "ngInfiniteScroll": "~1.1.0",
+    "uri.js": "~1.13.1",
+    "angular-google-maps": "~1.0.18"
+  }
+}
