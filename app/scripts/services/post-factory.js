@@ -7,20 +7,20 @@ angular.module('luciandipeso.wl')
       this.currentPage = 0;
       this.stop = false;
       this.busy = false;
-    }
+    };
 
     var Post = function(row) {
       this.id = row.id || 0;
-      this.title = row.title || "";
-      this.subtitle = row.subtitle || "";
-      this.type = row.type || "essay";
-      this.date_added = row.date_added || new Date();
-      this.date_updated = row.date_updated || new Date();
+      this.title = row.title || '';
+      this.subtitle = row.subtitle || '';
+      this.type = row.type || 'essay';
+      this.dateAdded = row.dateAdded || new Date();
+      this.dateUpdated = row.dateUpdated || new Date();
       this.lat = row.lat || null;
       this.lng = row.lng || null;
-      this.latlng = (row.lat && row.lng) ? row.lat + ", " + row.lng : null;
+      this.latlng = (row.lat && row.lng) ? row.lat + ', ' + row.lng : null;
 
-      var $postHtml = $('<div>' + (row.post || "") + '</div>');
+      var $postHtml = $('<div>' + (row.post || '') + '</div>');
       $postHtml.find('.article-sidenote')
         .wrapInner('<span class="contents"></span>')
         .prepend('<sub>↪</sub>');
@@ -38,7 +38,7 @@ angular.module('luciandipeso.wl')
         this.postlets.push(new Postlet(row.postlets[i]));
       }
 
-      for(var i=0, length = row.citations.length; i<length; i++) {
+      for(i=0, length = row.citations.length; i<length; i++) {
         this.citations.push(new Citation(row.citations[i]));
       }
 
@@ -51,7 +51,7 @@ angular.module('luciandipeso.wl')
           this.postlets[i].visible = false;
         }
         this.postlets[idx].visible = true;
-      }
+      };
       
       if(this.postlets.length && this.postlets[0].hasCoords()) {
         this.map = {
@@ -62,15 +62,15 @@ angular.module('luciandipeso.wl')
             }
 
             var postlet = this.postlets[idx];
-            var google_map = this.mapObject.getGMap();
+            var googleMap = this.mapObject.getGMap();
 
-            if(!postlet || !postlet.hasCoords() || !google_map) {
+            if(!postlet || !postlet.hasCoords() || !googleMap) {
               return;
             }
 
             this.mapObject.marker = new google.maps.Marker({
               position: new google.maps.LatLng(postlet.lat, postlet.lng),
-              map: google_map,
+              map: googleMap,
               animation: google.maps.Animation.DROP
             });
 
@@ -109,21 +109,21 @@ angular.module('luciandipeso.wl')
 
     var Postlet = function(row) {
       this.id = row.id;
-      this.date_added = row.date_added || new Date();
+      this.dateAdded = row.dateAdded || new Date();
       this.lat = row.lat || null;
       this.lng = row.lng || null;
-      this.post = row.post || "";
+      this.post = row.post || '';
       this.visible = false;
 
       this.hasCoords = function() {
         return (this.lng && this.lat);
-      }
-    }
+      };
+    };
 
     var Citation = function(row) {
       this.id = row.id;
       this.citation = row.citation;
-    }
+    };
 
     PostFactory.prototype.nextPage = function() {
       if(this.stop || this.busy) {
@@ -147,7 +147,7 @@ angular.module('luciandipeso.wl')
     };
 
     PostFactory.prototype.getPost = function(id) {
-      var url = URI(settings.apiBase + "/post/" + id);
+      var url = URI(settings.apiBase + '/post/' + id);
       url.search({ 'callback': 'JSON_CALLBACK'});
 
       var deferred = $q.defer();
@@ -157,17 +157,17 @@ angular.module('luciandipeso.wl')
             deferred.resolve(new Post(data.record));
           
           } catch(err) {
-            deferred.reject("Fail to query server for posts. " + err);
+            deferred.reject('Fail to query server for posts. ' + err);
           }
         }.bind(this))
         .error(function(data, status, headers, config) {
-          console.debug("Error", data, status, headers, config);
+          console.debug('Error', data, status, headers, config);
         });
       return deferred.promise;
-    }
+    };
 
     PostFactory.prototype.getPosts = function(page) {
-      var url = URI(settings.apiBase + "/posts/" + page);
+      var url = URI(settings.apiBase + '/posts/' + page);
       url.search({ 'callback': 'JSON_CALLBACK'});
 
       var deferred = $q.defer();
@@ -182,11 +182,11 @@ angular.module('luciandipeso.wl')
             deferred.resolve(results);
           
           } catch(err) {
-            deferred.reject("Fail to query server for posts. " + err);
+            deferred.reject('Fail to query server for posts. ' + err);
           }
         }.bind(this))
         .error(function(data, status, headers, config) {
-          console.debug("Error", data, status, headers, config);
+          console.debug('Error', data, status, headers, config);
         });
       return deferred.promise;
     };

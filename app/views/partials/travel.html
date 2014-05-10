@@ -10,7 +10,7 @@
     <div class="col-sm-3">
       <ol class="nav nav-pills nav-stacked side-nav postlet-nav">
         <li ng-repeat="postlet in item.postlets" ng-class="{ active: item.postlets[$index].visible }">
-          <button class="btn btn-link" ng-click="item.showPostlet($index)">{{ postlet.date_added | amDateFormat: "llll" }}</button>
+          <button class="btn btn-link" ng-click="item.showPostlet($index)">{{ postlet.dateAdded | amDateFormat: "llll" }}</button>
         </li>
       </ol>
     </div>
@@ -37,7 +37,7 @@
     </div>
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
-        Posted {{ item.date_added | amDateFormat: "LLLL" }}<br>
+        Posted {{ item.dateAdded | amDateFormat: "LLLL" }}<br>
         <span ng-if="item.latlng">{{ item.latlng }}<br></span>
         Permalink: <a href="#/post/{{ item.id }}">whereslucian.com/#/post/{{ item.id }}</a>
       </div>
