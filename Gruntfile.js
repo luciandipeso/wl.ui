@@ -114,10 +114,10 @@ module.exports = function(grunt) {
         '<%= yo.app %>/scripts/{,*/}*.js'
       ],
       test: {
-        options: {
-          jshintrc: 'test/.jshintrc'
-        },
-        src: ['test/spec/{,*/}*.js']
+        // options: {
+        //   jshintrc: 'test/.jshintrc'
+        // },
+        // src: ['test/spec/{,*/}*.js']
       }
     },
 
@@ -344,17 +344,17 @@ module.exports = function(grunt) {
     },
 
     // Test settings
-    karma: {
-      options: {
-        configFile: 'test/karma.conf.js',
-      },
-      unit: {
-        singleRun: true
-      },
-      server: {
-        autoWatch: true
-      }
-    }
+    // karma: {
+    //   options: {
+    //     configFile: 'test/karma.conf.js',
+    //   },
+    //   unit: {
+    //     singleRun: true
+    //   },
+    //   server: {
+    //     autoWatch: true
+    //   }
+    // }
   });
 
 
