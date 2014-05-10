@@ -84,7 +84,7 @@ angular.module('luciandipeso.wl')
             latitude: this.postlets[0].lat,
             longitude: this.postlets[0].lng
           },
-          zoom: 10, 
+          zoom: 10,
           postletLatLngs: [],
           postlets: [],
           stroke: {
@@ -92,9 +92,9 @@ angular.module('luciandipeso.wl')
             weight: 4,
             opacity: 0.8
           }
-        }
+        };
 
-        for(var i=0, length = this.postlets.length; i<length; i++) {
+        for(i=0, length = this.postlets.length; i<length; i++) {
           if(this.postlets[i].hasCoords()) {
             this.map.postlets.push(this.postlets[i]);
 
@@ -105,7 +105,7 @@ angular.module('luciandipeso.wl')
           }
         }
       }
-    }
+    };
 
     var Postlet = function(row) {
       this.id = row.id;
