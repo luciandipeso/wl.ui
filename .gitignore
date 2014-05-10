@@ -3,3 +3,5 @@ bower_components/
 node_modules/
 .tmp/
 config/
+log/access.log
+log/error.log
