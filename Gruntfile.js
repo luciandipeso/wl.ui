@@ -370,7 +370,9 @@ module.exports = function(grunt) {
 
     ngconstant: {
       options: {
-        name: 'config',
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'wl.config',
         dest: 'app/scripts/config.js',
       },
       dist: {

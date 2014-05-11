@@ -1,7 +1,9 @@
-angular.module("config", [])
+"use strict";
+
+ angular.module("wl.config", [])
 
 .constant("settings", {
-	"apiBase": "http://localhost:8080"
+  "apiBase": "http://localhost:8080"
 })
 
 ;

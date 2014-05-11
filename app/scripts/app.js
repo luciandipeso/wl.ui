@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('luciandipeso.wl', ['config', 'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'mgcrea.ngStrap', 'chieffancypants.loadingBar', 'infinite-scroll', 'angularMoment', 'google-maps'])
+angular.module('luciandipeso.wl', ['wl.config', 'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'mgcrea.ngStrap', 'chieffancypants.loadingBar', 'infinite-scroll', 'angularMoment', 'google-maps'])
 
   .constant('version', 'v0.1.0')
 
-  .run(['settings', function(settings) {
+  .run([ 'settings', function(settings) {
     var head = angular.element('head');
 
     head.append(
