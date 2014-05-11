@@ -1,9 +1,21 @@
 'use strict';
 
-angular.module('luciandipeso.wl', ['ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'mgcrea.ngStrap', 'chieffancypants.loadingBar', 'infinite-scroll', 'angularMoment', 'google-maps'])
+angular.module('luciandipeso.wl', ['config', 'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'mgcrea.ngStrap', 'chieffancypants.loadingBar', 'infinite-scroll', 'angularMoment', 'google-maps'])
 
   .constant('version', 'v0.1.0')
-  .constant('settings', wl.settings)
+
+  .run(['settings', function(settings) {
+    var head = angular.element('head'); 
+
+    if(head.scope())
+    {
+      head.append(
+        $compile(
+          '<link rel="alternate" type="application/rss+xml"' +
+          ' title="RSS 2.0" href="' + settings.apiBase + '/feeds/posts">'
+        )(scope));
+    }
+  }])
 
   .config(function($locationProvider, $routeProvider) {
 

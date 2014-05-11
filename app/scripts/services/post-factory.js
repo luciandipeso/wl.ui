@@ -12,6 +12,7 @@ angular.module('luciandipeso.wl')
     var Post = function(row) {
       this.id = row.id || 0;
       this.title = row.title || '';
+      this.author = row.author || '';
       this.subtitle = row.subtitle || '';
       this.type = row.type || 'essay';
       this.dateAdded = row.dateAdded || new Date();

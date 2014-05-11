@@ -8,7 +8,7 @@ angular.module('luciandipeso.wl')
     $scope.item = {};
     
     $scope.pm = new PostFactory();
-    $scope.pm.getPost($routeParams['id']).then(function(result) {
+    $scope.pm.getPost($routeParams.id).then(function(result) {
       $scope.item = result;
     });
   });

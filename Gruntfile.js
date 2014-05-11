@@ -14,7 +14,6 @@ module.exports = function(grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
-
     // Project meta
     pkg: require('./package.json'),
     bower: require('./bower.json'),
@@ -197,7 +196,7 @@ module.exports = function(grunt) {
           src: [
             '<%= yo.dist %>/scripts/{,*/}*.js',
             '<%= yo.dist %>/styles/{,*/}*.css',
-            '<%= yo.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            //'<%= yo.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yo.dist %>/styles/fonts/*'
           ]
         }
@@ -318,13 +317,39 @@ module.exports = function(grunt) {
           cwd: '.tmp/images',
           dest: '<%= yo.dist %>/images',
           src: ['generated/*']
+        }, {
+          expand: true,
+          cwd: '<%= yo.app %>',
+          dest: '<%= yo.dist %>/fonts',
+          src: ['bower_components/bootstrap/fonts']
+        }, {
+          expand: true,
+          cwd: '<%= yo.app %>',
+          dest: '<%= yo.dist %>/projects',
+          src: ['projects']
+        }, {
+          expand: true,
+          cwd: '<%= yo.app %>',
+          dest: '<%= yo.dist %>/publications',
+          src: ['publications']
+        }, {
+          expand: true,
+          cwd: '<%= yo.app %>',
+          dest: '<%= yo.dist %>/config',
+          src: ['config/config.js']
         }]
       },
       styles: {
         expand: true,
         cwd: '<%= yo.app %>/styles',
         dest: '.tmp/styles/',
-        src: '{,*/}*.css'
+        src: [
+          '{,*/}*.css',
+          'cmun-serif/*.eot',
+          'cmun-serif/*.svg',
+          'cmun-serif/*.ttf',
+          'cmun-serif/*.woff'
+        ]
       }
     },
 
@@ -342,6 +367,28 @@ module.exports = function(grunt) {
         'svgmin'
       ]
     },
+
+    ngconstant: {
+      options: {
+        name: 'config',
+        dest: 'app/scripts/config.js',
+      },
+      dist: {
+        options: {
+          dest: 'public/scripts/config.js',
+        }
+      },
+      dev: {
+        constants: {
+          settings: { apiBase: "http://localhost:8080" }
+        }
+      },
+      prod: {
+        constants: {
+          settings: { apiBase: "http://whereslucian.com:8080" }
+        }
+      }
+    }
 
     // Test settings
     // karma: {
@@ -365,6 +412,7 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:dev',
       'bowerInstall',
       'concurrent:server',
       'autoprefixer',
@@ -380,6 +428,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'ngconstant:dev',
     'concurrent:test',
     'autoprefixer',
     'connect:test',
@@ -388,6 +437,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:prod',
     'bowerInstall',
     'useminPrepare',
     'concurrent:dist',

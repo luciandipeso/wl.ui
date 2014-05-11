@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
-        Posted {{ item.dateAdded | amDateFormat: "LLLL" }}<br>
+        Written {{ item.dateAdded | amDateFormat: "LLLL" }}<br>
         <span ng-if="item.latlng">{{ item.latlng }}<br></span>
         Permalink: <a href="#/post/{{ item.id }}">whereslucian.com/#/post/{{ item.id }}</a>
       </div>

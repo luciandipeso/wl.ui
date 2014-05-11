@@ -121,16 +121,6 @@ body > .container
   }
 }
 
-#masthead .navbar-brand
-{
-  background-color: @brand-primary;
-  background: linear-gradient(90deg, darken(@brand-primary, 10%), @brand-primary 10%);
-  font-family: @font-family-sans-serif;
-  font-size: @font-size-h3;
-  letter-spacing: 1px;
-  color: #fff
-}
-
 #masthead .navbar-brand-wrapper
 {
   padding-right: 50px;
@@ -148,6 +138,82 @@ body > .container
   content: '';
   height: 0;
   width: 0;
+}
+
+#masthead .navbar-brand
+{
+  background-color: @brand-primary;
+  background: linear-gradient(90deg, darken(@brand-primary, 10%), @brand-primary 10%);
+  font-family: @font-family-sans-serif;
+  font-size: @font-size-h3;
+  letter-spacing: 1px;
+  color: #fff
+}
+
+#masthead .animate-search
+{
+  -webkit-transition:0.2s ease all;
+  transition:0.2s ease all;
+  width: 42px;
+  padding-right: 42px;
+  clear: both;
+}
+
+#masthead .animate-search > .animate-search-cse
+{
+  width: 200px;
+}
+
+#masthead .animate-search > .animate-search-cse input.gsc-search-button
+{
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: @btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base);
+  .user-select(none);
+
+  &,
+  &:active,
+  &.active {
+    &:focus {
+      .tab-focus();
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: @btn-default-color;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+    .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks
+    .opacity(.65);
+    .box-shadow(none);
+  }
+
+  .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
+  width: 25px;
+  height: 25px;
+  margin-top: 0;
+  margin-left: -5px;
+  padding: 6px;
 }
 
 #main-menu
