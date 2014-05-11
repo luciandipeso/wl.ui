@@ -325,21 +325,21 @@ module.exports = function(grunt) {
           expand: true,
           cwd: '<%= yo.app %>',
           dest: '<%= yo.dist %>',
-          src: ['projects/{,*/}*']
+          src: ['projects/**/*']
         }, {
           expand: true,
           cwd: '<%= yo.app %>',
           dest: '<%= yo.dist %>',
-          src: ['publications/{,*/}*']
+          src: ['publications/**/*']
         }, {
           expand: true,
-          cwd: '<%= yo.app %>',
-          dest: '<%= yo.dist %>',
+          cwd: '<%= yo.app %>/styles/cmun-serif',
+          dest: '<%= yo.dist %>/fonts',
           src: [
-            'styles/cmun-serif/*.eot',
-            'styles/cmun-serif/*.svg',
-            'style/cmun-serif/*.ttf',
-            'styles/cmun-serif/*.woff'
+            '*.eot',
+            '*.svg',
+            '*.ttf',
+            '*.woff'
           ]
         }]
       },
