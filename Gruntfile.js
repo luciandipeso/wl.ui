@@ -380,12 +380,12 @@ module.exports = function(grunt) {
       },
       dev: {
         constants: {
-          settings: { apiBase: "http://localhost:8080" }
+          settings: { apiBase: 'http://localhost:8080' }
         }
       },
       prod: {
         constants: {
-          settings: { apiBase: "http://whereslucian.com:8080" }
+          settings: { apiBase: 'http://whereslucian.com:8080' }
         }
       }
     }
