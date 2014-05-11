@@ -5,16 +5,12 @@ angular.module('luciandipeso.wl', ['config', 'ngAnimate', 'ngCookies', 'ngResour
   .constant('version', 'v0.1.0')
 
   .run(['settings', function(settings) {
-    var head = angular.element('head'); 
+    var head = angular.element('head');
 
-    if(head.scope())
-    {
-      head.append(
-        $compile(
-          '<link rel="alternate" type="application/rss+xml"' +
-          ' title="RSS 2.0" href="' + settings.apiBase + '/feeds/posts">'
-        )(scope));
-    }
+    head.append(
+      '<link rel="alternate" type="application/rss+xml"' +
+      ' title="RSS 2.0" href="' + settings.apiBase + '/feeds/posts">'
+    );
   }])
 
   .config(function($locationProvider, $routeProvider) {
