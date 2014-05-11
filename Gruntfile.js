@@ -336,10 +336,11 @@ module.exports = function(grunt) {
           cwd: '<%= yo.app %>',
           dest: '<%= yo.dist %>',
           src: [
-          'styles/cmun-serif/*.eot',
-          'styles/cmun-serif/*.svg',
-          'style/cmun-serif/*.ttf',
-          'styles/cmun-serif/*.woff']
+            'styles/cmun-serif/*.eot',
+            'styles/cmun-serif/*.svg',
+            'style/cmun-serif/*.ttf',
+            'styles/cmun-serif/*.woff'
+          ]
         }]
       },
       styles: {
