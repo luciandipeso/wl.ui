@@ -22,6 +22,7 @@ angular.module('luciandipeso.wl', ['wl.config', 'ngAnimate', 'ngCookies', 'ngRes
     $httpProvider.interceptors.push('restRecoverer');
 
     $locationProvider.html5Mode(false);
+    $locationProvider.hashPrefix('!');
 
     $routeProvider
       .when('/', {
