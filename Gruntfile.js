@@ -309,7 +309,6 @@ module.exports = function(grunt) {
             '*.html',
             'views/{,*/}*.html',
             'bower_components/**/*',
-            'fonts/*',
             'images/*'
           ]
         }, {
@@ -335,8 +334,12 @@ module.exports = function(grunt) {
         }, {
           expand: true,
           cwd: '<%= yo.app %>',
-          dest: '<%= yo.dist %>/config',
-          src: ['config/config.js']
+          dest: '<%= yo.dist %>',
+          src: [
+          'styles/cmun-serif/*.eot',
+          'styles/cmun-serif/*.svg',
+          'style/cmun-serif/*.ttf',
+          'styles/cmun-serif/*.woff']
         }]
       },
       styles: {
@@ -344,11 +347,7 @@ module.exports = function(grunt) {
         cwd: '<%= yo.app %>/styles',
         dest: '.tmp/styles/',
         src: [
-          '{,*/}*.css',
-          'cmun-serif/*.eot',
-          'cmun-serif/*.svg',
-          'cmun-serif/*.ttf',
-          'cmun-serif/*.woff'
+          '{,*/}*.css'
         ]
       }
     },
