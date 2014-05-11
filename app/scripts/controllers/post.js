@@ -2,7 +2,7 @@
 
 angular.module('luciandipeso.wl')
 
-  .controller('PostCtrl', function($scope, $location, $http, $q, $routeParams, PostFactory, version, settings) {
+  .controller('PostCtrl', ['$scope', '$location', '$http', '$q', '$routeParams', 'PostFactory', 'version', 'settings', function($scope, $location, $http, $q, $routeParams, PostFactory, version, settings) {
     $scope.$path = $location.path.bind($location);
     $scope.version = version;
     $scope.item = {};
@@ -11,4 +11,4 @@ angular.module('luciandipeso.wl')
     $scope.pm.getPost($routeParams.id).then(function(result) {
       $scope.item = result;
     });
-  });
+  }]);

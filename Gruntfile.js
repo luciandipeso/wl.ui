@@ -318,9 +318,9 @@ module.exports = function(grunt) {
           src: ['generated/*']
         }, {
           expand: true,
-          cwd: '<%= yo.app %>',
+          cwd: '<%= yo.app %>/bower_components/bootstrap/fonts',
           dest: '<%= yo.dist %>/fonts',
-          src: ['bower_components/bootstrap/fonts']
+          src: ['*']
         }, {
           expand: true,
           cwd: '<%= yo.app %>',
