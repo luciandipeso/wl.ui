@@ -309,8 +309,8 @@ module.exports = function(grunt) {
             '*.html',
             'views/{,*/}*.html',
             'bower_components/**/*',
-            'images/{,*/}*.{webp}',
-            'fonts/*'
+            'fonts/*',
+            'images/*'
           ]
         }, {
           expand: true,
@@ -325,13 +325,13 @@ module.exports = function(grunt) {
         }, {
           expand: true,
           cwd: '<%= yo.app %>',
-          dest: '<%= yo.dist %>/projects',
-          src: ['projects']
+          dest: '<%= yo.dist %>',
+          src: ['projects/*']
         }, {
           expand: true,
           cwd: '<%= yo.app %>',
-          dest: '<%= yo.dist %>/publications',
-          src: ['publications']
+          dest: '<%= yo.dist %>',
+          src: ['publications/*']
         }, {
           expand: true,
           cwd: '<%= yo.app %>',
