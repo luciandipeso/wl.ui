@@ -387,7 +387,7 @@ module.exports = function(grunt) {
       },
       prod: {
         constants: {
-          settings: { apiBase: 'http://whereslucian.com:8080' }
+          settings: { apiBase: 'http://whereslucian.com' }
         }
       }
     }
