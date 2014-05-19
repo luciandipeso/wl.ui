@@ -12,7 +12,7 @@ angular.module('luciandipeso.wl', ['wl.config', 'ngAnimate', 'ngCookies', 'ngRes
       ' title="RSS 2.0" href="/feeds/posts">'
     );
 
-    $rootScope.$on("$routeChangeSuccess", function(currentRoute, previousRoute) {
+    $rootScope.$on('$routeChangeSuccess', function(currentRoute, previousRoute) {
       $rootScope.title = $route.current.title;
     });
   }])
