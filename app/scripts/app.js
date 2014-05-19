@@ -2,14 +2,14 @@
 
 angular.module('luciandipeso.wl', ['wl.config', 'ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'mgcrea.ngStrap', 'chieffancypants.loadingBar', 'infinite-scroll', 'angularMoment', 'google-maps'])
 
-  .constant('version', 'v0.1.0')
+  .constant('version', 'v0.2.0')
 
   .run(['$rootScope', '$route', 'settings', function($rootScope, $route, settings) {
     var head = angular.element('head');
 
     head.append(
       '<link rel="alternate" type="application/rss+xml"' +
-      ' title="RSS 2.0" href="' + settings.apiBase + '/feeds/posts">'
+      ' title="RSS 2.0" href="/feeds/posts">'
     );
 
     $rootScope.$on("$routeChangeSuccess", function(currentRoute, previousRoute) {
@@ -22,7 +22,7 @@ angular.module('luciandipeso.wl', ['wl.config', 'ngAnimate', 'ngCookies', 'ngRes
     $httpProvider.interceptors.push('restRecoverer');
 
     $locationProvider.html5Mode(false);
-    //$locationProvider.hashPrefix('!');
+    $locationProvider.hashPrefix('!');
 
     $routeProvider
       .when('/', {
@@ -37,6 +37,10 @@ angular.module('luciandipeso.wl', ['wl.config', 'ngAnimate', 'ngCookies', 'ngRes
       .when('/about', {
         templateUrl: 'views/about.html',
         title: 'About'
+      })
+      .when('/projects', {
+        templateUrl: 'views/projects.html',
+        title: 'Projects'
       })
       .when('/404', {
         templateUrl: 'views/404.html',
