@@ -2,9 +2,9 @@
 
 angular.module('luciandipeso.wl')
   .factory('PostFactory', [ '$http', '$q', 'settings', function($http, $q, settings) {
-    var PostFactory = function() {
-      this.items = [];
-      this.currentPage = 0;
+    var PostFactory = function(items, currentPage) {
+      this.items = items || [];
+      this.currentPage = currentPage || 0;
       this.stop = false;
       this.busy = false;
     };

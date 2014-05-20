@@ -27,12 +27,24 @@ angular.module('luciandipeso.wl', ['wl.config', 'ngAnimate', 'ngCookies', 'ngRes
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
-        title: 'Do you know where he is?'
+        title: 'Do you know where he is?',
+        resolve: {
+          firstPage: ['PostFactory', function(PostFactory) {
+            var pm = new PostFactory();
+            return pm.getPosts(1);
+          }]
+        }
       })
       .when('/post/:id', {
         controller: 'PostCtrl',
         templateUrl: 'views/post.html',
-        title: 'Essay'
+        title: 'Essay',
+        resolve: {
+          post: ['$route', 'PostFactory', function($route, PostFactory) {
+            var pm = new PostFactory();
+            return pm.getPost($route.current.params.id);
+          }]
+        }
       })
       .when('/about', {
         templateUrl: 'views/about.html',
