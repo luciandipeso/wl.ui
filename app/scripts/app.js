@@ -26,10 +26,11 @@ angular.module('luciandipeso.wl', ['wl.config', 'ngAnimate', 'ngCookies', 'ngRes
 
     $routeProvider
       .when('/', {
+        controller: 'MainCtrl',
         templateUrl: 'views/home.html',
         title: 'Do you know where he is?',
         resolve: {
-          firstPage: ['PostFactory', function(PostFactory) {
+          posts: ['PostFactory', function(PostFactory) {
             var pm = new PostFactory();
             return pm.getPosts(1);
           }]
